@@ -1,0 +1,33 @@
+.card {
+  background: var(--yskc-card, #FBF7EF);
+  border: 2rpx solid var(--yskc-border, #D4C5A0);
+  border-radius: 14rpx;
+  padding: 20rpx 16rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.selected {
+  border-color: var(--yskc-accent, #8B3A3A);
+  box-shadow: 0 0 0 2rpx rgba(139,58,58,0.2);
+}
+.icon {
+  width: 56rpx;
+  height: 56rpx;
+  margin: 0 auto 10rpx;
+  border-radius: 50%;
+  background: rgba(139,58,58,0.1);
+  color: var(--yskc-accent, #8B3A3A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+}
+.name {
+  font-size: 26rpx;
+  color: var(--yskc-text, #3C3024);
+}
+.time {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: var(--yskc-muted, #8A7A68);
+}

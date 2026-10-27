@@ -1,0 +1,19 @@
+<view class="page pattern-bg {{themeClass}}" style="{{themeVars}}">
+  <view class="summary" wx:if="{{records.length}}">最近 {{records.length}} 场·本地保存</view>
+  <view class="empty card" wx:else>
+    <view class="empty-mark">砚</view>
+    <view class="empty-title">还没有完成记录</view>
+    <view class="empty-desc">完整走完一场考试后，会自动记录在这里</view>
+  </view>
+
+  <view class="record card" wx:for="{{records}}" wx:key="rowKey">
+    <view class="record-head">
+      <view class="subject">{{item.subjectName}}</view>
+      <view class="duration">{{item.durationText}}</view>
+    </view>
+    <view class="record-meta">
+      <text>{{item.date}}</text>
+      <text>{{item.startTime}} → {{item.endTime}}</text>
+    </view>
+  </view>
+</view>

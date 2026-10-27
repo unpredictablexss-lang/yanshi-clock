@@ -1,0 +1,7 @@
+<view class="mask" wx:if="{{visible}}" bindtap="onDismiss">
+  <view class="popup" catchtap="">
+    <view class="title">{{title}}</view>
+    <view class="msg">{{message}}</view>
+    <button class="ok" bindtap="onDismiss">知道了</button>
+  </view>
+</view>

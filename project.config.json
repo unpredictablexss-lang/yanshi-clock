@@ -1,0 +1,48 @@
+{
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "uglifyFileName": false,
+    "enhance": true,
+    "packNpmRelationList": [],
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useCompilerPlugins": false,
+    "minifyWXML": true,
+    "minifyWXSS": true,
+    "ignoreUploadUnusedFiles": true
+  },
+  "compileType": "miniprogram",
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "file",
+        "value": ".eslintrc.js"
+      },
+      {
+        "type": "file",
+        "value": "README.md"
+      },
+      {
+        "type": "folder",
+        "value": "scripts"
+      },
+      {
+        "type": "file",
+        "value": "assets/audio/README.md"
+      },
+      {
+        "type": "file",
+        "value": "assets/audio/SOURCE.md"
+      }
+    ],
+    "include": []
+  },
+  "appid": "wx29dae1aaccb06183",
+  "editorSetting": {}
+}

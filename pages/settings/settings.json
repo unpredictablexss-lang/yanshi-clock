@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "设置",
+  "usingComponents": {
+    "theme-picker": "/components/theme-picker/theme-picker",
+    "audio-panel": "/components/audio-panel/audio-panel"
+  }
+}

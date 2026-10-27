@@ -1,0 +1,107 @@
+/* 水墨笔触轨道 — 宣纸底色上的淡墨痕 */
+.bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  width: 100%;
+}
+
+.track {
+  flex: 1;
+  height: 16rpx;
+  border-radius: 2rpx;
+  /* 淡墨底色，如宣纸上浅浅的笔触 */
+  background: linear-gradient(
+    180deg,
+    rgba(201, 192, 176, 0.25),
+    rgba(201, 192, 176, 0.15)
+  );
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 1rpx 0 rgba(255,255,255,0.4) inset,
+    0 1rpx 2rpx rgba(44,36,24,0.04) inset;
+}
+
+/* 装饰墨点（留白待加入组件WXML） */
+.track::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* 填充：墨色渐变 — 从淡到浓，模拟毛笔一笔 */
+.fill {
+  height: 100%;
+  border-radius: 2rpx 0 0 2rpx;
+  background: linear-gradient(
+    90deg,
+    var(--yskc-progress-a),
+    var(--yskc-progress-b)
+  );
+  transition: width 0.4s ease;
+  position: relative;
+
+  /* 水墨边缘渗化效果 */
+  box-shadow:
+    0 0 4rpx rgba(139, 105, 20, 0.2),
+    0 0 0 1rpx rgba(255,255,255,0.25) inset;
+}
+
+/* 宋韵：青绿墨痕 */
+.page.theme-songyun .track {
+  border-radius: 1rpx;
+  background: linear-gradient(180deg, rgba(183,160,120,0.18), rgba(95,143,122,0.08));
+}
+.page.theme-songyun .fill {
+  border-radius: 1rpx 0 0 1rpx;
+  background: linear-gradient(90deg, rgba(183,160,120,0.6), #5F8F7A);
+  box-shadow: 0 0 3rpx rgba(95,143,122,0.2), 0 0 0 0.5rpx rgba(95,143,122,0.15) inset;
+}
+
+/* 唐风：金→朱红墨痕 */
+.page.theme-tangfeng .track {
+  border-radius: 2rpx;
+  background: linear-gradient(180deg, rgba(201,169,70,0.12), rgba(192,57,43,0.06));
+}
+.page.theme-tangfeng .fill {
+  background: linear-gradient(90deg, #D4AF37, #B83228);
+  box-shadow: 0 0 6rpx rgba(184,50,40,0.18), 0 0 0 1rpx rgba(255,220,150,0.2) inset;
+}
+
+/* 国潮：朱红+青色撞色墨痕 */
+.page.theme-guochao .track {
+  border-radius: 1rpx;
+  height: 18rpx;
+}
+.page.theme-guochao .fill {
+  border-radius: 1rpx 0 0 1rpx;
+  background: linear-gradient(90deg, #C8102E 0%, #1F4E79 85%, #C8102E 100%);
+  box-shadow: 0 0 6rpx rgba(200,16,46,0.2);
+}
+
+/* 书斋：竹墨色 */
+.page.theme-wenfang .fill {
+  background: linear-gradient(90deg, #C4B394 0%, #A33B2B 80%);
+  box-shadow: 0 0 4rpx rgba(163,59,43,0.2);
+}
+
+/* 暗夜：鎏金墨痕 */
+.page.theme-moyun .track {
+  background: rgba(74, 63, 50, 0.25);
+}
+.page.theme-moyun .fill {
+  background: linear-gradient(90deg, #8A6830, #D8CEB4);
+  box-shadow: 0 0 6rpx rgba(201,169,110,0.25);
+}
+
+/* 百分比文字 */
+.pct {
+  width: 72rpx;
+  text-align: right;
+  font-size: 24rpx;
+  color: var(--yskc-muted);
+  letter-spacing: 1rpx;
+  font-variant-numeric: tabular-nums;
+}

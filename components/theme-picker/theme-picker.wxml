@@ -1,0 +1,20 @@
+<view class="themes">
+  <view
+    class="theme-card theme-{{item.key}} {{current === item.key ? 'active' : ''}}"
+    wx:for="{{themes}}"
+    wx:key="key"
+    data-key="{{item.key}}"
+    bindtap="onSelect"
+  >
+    <view class="swatch" style="background: {{item.bg}};">
+      <view class="swatch-accent" style="background: {{item.accent}};"></view>
+      <view class="swatch-decor" style="background: {{item.decor}};"></view>
+      <view class="swatch-gold" style="background: {{item.gilding}};"></view>
+    </view>
+    <view class="meta">
+      <view class="name" style="color: {{item.text}};">{{item.name}}</view>
+      <view class="tagline">{{item.tagline}}</view>
+    </view>
+    <view class="badge" wx:if="{{current === item.key}}" style="background: {{item.accent}};">当前</view>
+  </view>
+</view>

@@ -1,0 +1,69 @@
+.page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 28rpx 28rpx calc(48rpx + env(safe-area-inset-bottom));
+  background-color: var(--yskc-bg);
+  color: var(--yskc-text);
+}
+
+.summary {
+  margin: 4rpx 4rpx 22rpx;
+  color: var(--yskc-muted);
+  font-size: 26rpx;
+}
+
+.record {
+  margin-bottom: 20rpx;
+  padding: 28rpx;
+}
+
+.record-head,
+.record-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subject {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.duration {
+  color: var(--yskc-accent);
+  font-size: 28rpx;
+}
+
+.record-meta {
+  margin-top: 18rpx;
+  color: var(--yskc-muted);
+  font-size: 24rpx;
+}
+
+.empty {
+  margin-top: 100rpx;
+  padding: 70rpx 32rpx;
+  text-align: center;
+}
+
+.empty-mark {
+  width: 92rpx;
+  height: 92rpx;
+  margin: 0 auto 26rpx;
+  border: 2rpx solid var(--yskc-accent);
+  color: var(--yskc-accent);
+  font-size: 44rpx;
+  line-height: 92rpx;
+  transform: rotate(-5deg);
+}
+
+.empty-title {
+  font-size: 32rpx;
+}
+
+.empty-desc {
+  margin-top: 16rpx;
+  color: var(--yskc-muted);
+  font-size: 25rpx;
+  line-height: 1.7;
+}

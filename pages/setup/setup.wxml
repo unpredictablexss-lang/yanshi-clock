@@ -1,0 +1,57 @@
+﻿<view class="page pattern-bg {{themeClass}}" style="{{themeVars}}">
+  <view class="top-bar">
+    <text class="hint">设置虚拟开考与结束时间</text>
+    <button class="save" bindtap="onSave">保存</button>
+  </view>
+
+  <view class="section-title">虚拟开考时间</view>
+  <view class="picker-card">
+    <picker-view class="picker" value="{{startValue}}" bindchange="onStartChange">
+      <picker-view-column>
+        <view wx:for="{{hours}}" wx:key="*this" class="pv">{{item}} 时</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{minutes}}" wx:key="*this" class="pv">{{item}} 分</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+
+  <view class="section-title">虚拟结束时间</view>
+  <view class="picker-card">
+    <picker-view class="picker" value="{{endValue}}" bindchange="onEndChange">
+      <picker-view-column>
+        <view wx:for="{{hours}}" wx:key="*this" class="pv">{{item}} 时</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{minutes}}" wx:key="*this" class="pv">{{item}} 分</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+
+  <view class="duration">考试总时长：{{durationText}}</view>
+
+  <view class="section-title">考试名</view>
+  <view class="task-card">
+    <input
+      class="task-input"
+      type="text"
+      maxlength="{{taskNameMax}}"
+      value="{{taskName}}"
+      placeholder="例如：申论模考（12字以内）"
+      placeholder-class="task-ph"
+      bindinput="onTaskNameInput"
+    />
+    <text class="task-count">{{taskName.length}}/{{taskNameMax}}</text>
+  </view>
+
+  <view class="section-title">快速模板</view>
+  <view class="grid">
+    <exam-template-card
+      wx:for="{{templates}}"
+      wx:key="id"
+      template="{{item}}"
+      selected="{{selectedId === item.id}}"
+      bind:select="onSelectTemplate"
+    />
+  </view>
+</view>

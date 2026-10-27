@@ -1,0 +1,26 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx 28rpx 60rpx;
+  background: var(--yskc-bg);
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22rpx 4rpx;
+  border-bottom: 1rpx solid var(--yskc-border, #D4C5A0);
+  font-size: 28rpx;
+  opacity: 0.6;
+}
+
+.row:last-child { border-bottom: none; }
+
+.picker-val { color: var(--yskc-accent); }
+
+.preview {
+  margin-left: 20rpx;
+  color: var(--yskc-accent);
+  font-size: 26rpx;
+}

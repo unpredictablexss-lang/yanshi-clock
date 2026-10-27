@@ -1,0 +1,412 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx 28rpx 48rpx;
+  box-sizing: border-box;
+  background: var(--yskc-bg);
+  color: var(--yskc-text);
+}
+
+.page.is-full {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== 品牌区域 ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid rgba(212,197,160,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.brand {
+  font-size: 38rpx;
+  font-weight: 700;
+  color: var(--yskc-accent);
+  letter-spacing: 6rpx;
+  position: relative;
+}
+
+/* 宣纸白：品牌下划线装饰 */
+.page.theme-zhixuan .brand::after {
+  content: '';
+  position: absolute;
+  bottom: -8rpx;
+  left: 0;
+  width: 100%;
+  height: 3rpx;
+  background: linear-gradient(90deg, var(--yskc-accent), transparent);
+  border-radius: 2rpx;
+}
+
+/* 水墨山：绿色品牌 */
+.page.theme-shanshui .brand {
+  color: var(--yskc-accent);
+}
+
+.page.theme-shanshui .header {
+  border-bottom-color: rgba(168,196,176,0.3);
+}
+
+/* 暗夜墨：金色品牌 + 暗底边框 */
+.page.theme-moyun .brand {
+  color: var(--yskc-gilding);
+  text-shadow: 0 0 20rpx rgba(201,169,110,0.2);
+}
+
+.page.theme-moyun .header {
+  border-bottom-color: rgba(201,169,110,0.15);
+}
+
+/* 宋韵：青绿品牌 + 细线装饰 */
+.page.theme-songyun .brand {
+  color: var(--yskc-accent);
+  font-weight: 600;
+  letter-spacing: 8rpx;
+}
+
+.page.theme-songyun .header {
+  border-bottom: 1rpx solid rgba(90,138,114,0.2);
+}
+
+/* 唐风：朱红品牌（金只做装饰线，避免浅金字糊在米色底上） */
+.page.theme-tangfeng .brand {
+  color: var(--yskc-accent);
+  font-weight: 700;
+}
+
+.page.theme-tangfeng .header {
+  border-bottom: 2rpx solid rgba(184, 149, 60, 0.35);
+  padding-bottom: 24rpx;
+}
+
+/* 国潮：红色品牌 + 粗线装饰 */
+.page.theme-guochao .brand {
+  color: var(--yskc-accent);
+  font-weight: 800;
+  letter-spacing: 4rpx;
+}
+
+.page.theme-guochao .header {
+  border-bottom: 3rpx solid rgba(212,68,59,0.15);
+}
+
+/* 书斋：朱砂印章品牌 */
+.page.theme-wenfang .brand {
+  background: linear-gradient(135deg, #B84A3A, #9B3B2A);
+  color: #FAF5EB;
+  padding: 6rpx 20rpx;
+  border-radius: 4rpx;
+  font-size: 32rpx;
+  letter-spacing: 8rpx;
+  box-shadow: 0 2rpx 8rpx rgba(155,59,42,0.2);
+}
+
+.page.theme-wenfang .header {
+  border-bottom-color: rgba(107,91,74,0.2);
+}
+
+.header-actions {
+  display: flex;
+  gap: 28rpx;
+}
+
+.link {
+  font-size: 26rpx;
+  color: var(--yskc-muted);
+  position: relative;
+}
+
+/* 唐风：链接用朱红，保证可读 */
+.page.theme-tangfeng .link {
+  color: var(--yskc-accent);
+  opacity: 1;
+}
+
+/* 国潮：撞色链接 */
+.page.theme-guochao .link {
+  color: var(--yskc-decor);
+}
+
+/* ===== 舞台区域 ===== */
+.stage {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.analog-meta {
+  text-align: center;
+  margin-top: 20rpx;
+  color: var(--yskc-muted);
+  font-size: 26rpx;
+  letter-spacing: 3rpx;
+}
+
+.analog-meta text {
+  display: inline-block;
+}
+
+.sep {
+  margin: 0 12rpx;
+  opacity: 0.35;
+}
+
+.progress-box {
+  margin-top: 36rpx;
+}
+
+.info {
+  margin-top: 32rpx;
+  text-align: center;
+}
+
+.range {
+  font-size: 30rpx;
+  color: var(--yskc-text);
+  letter-spacing: 3rpx;
+  font-weight: 600;
+}
+
+/* 时段分隔箭头 */
+.range-arrow {
+  color: var(--yskc-muted);
+  opacity: 0.5;
+  margin: 0 8rpx;
+}
+
+/* 唐风：时段信息用深檀正文色 */
+.page.theme-tangfeng .range {
+  color: var(--yskc-accent);
+}
+
+.stats {
+  margin-top: 18rpx;
+  display: flex;
+  justify-content: center;
+  gap: 56rpx;
+  color: var(--yskc-muted);
+  font-size: 26rpx;
+}
+
+.stats text {
+  letter-spacing: 2rpx;
+}
+
+/* ===== 按钮组 ===== */
+.controls {
+  margin-top: 44rpx;
+  display: flex;
+  gap: 20rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  flex: 1;
+  border-radius: 14rpx;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.btn::after { border: none; }
+
+/* 默认金色渐变按钮 */
+.primary {
+  background: linear-gradient(180deg, #D4B87A 0%, #C4A574 30%, #A07C30 70%, #8B6914 100%);
+  color: #FBF7EF;
+  box-shadow: 0 4rpx 16rpx rgba(139,105,20,0.25), inset 0 1rpx 0 rgba(255,255,255,0.15);
+}
+
+/* 宋韵：青瓷釉感按钮 */
+.page.theme-songyun .primary {
+  background: linear-gradient(180deg, rgba(90,138,114,0.15) 0%, rgba(90,138,114,0.08) 100%);
+  color: var(--yskc-accent);
+  border: 2rpx solid rgba(90,138,114,0.4);
+  box-shadow: 0 2rpx 10rpx rgba(90,138,114,0.12), inset 0 1rpx 0 rgba(255,255,255,0.6);
+}
+
+/* 水墨山：绿色渐变 */
+.page.theme-shanshui .primary {
+  background: linear-gradient(180deg, #7A9E8A 0%, #5B7A6B 40%, #3D5E4A 100%);
+  color: #F2EDE3;
+  box-shadow: 0 4rpx 14rpx rgba(61,94,74,0.25);
+}
+
+/* 暗夜墨：暗金渐变 */
+.page.theme-moyun .primary {
+  background: linear-gradient(180deg, #D4B87A 0%, #C9A96E 40%, #A08940 100%);
+  color: #1C1C1C;
+  box-shadow: 0 4rpx 16rpx rgba(201,169,110,0.2);
+}
+
+/* 唐风：主按钮深金底 + 深檀字，保证对比 */
+.page.theme-tangfeng .primary {
+  background: linear-gradient(135deg, #D4AF37 0%, #B8953C 45%, #8F6E1C 100%);
+  color: #2A1808;
+  border: 1rpx solid rgba(143, 110, 28, 0.45);
+  font-weight: 700;
+  text-shadow: none;
+  box-shadow: 0 6rpx 18rpx rgba(143, 110, 28, 0.28), inset 0 1rpx 0 rgba(255, 248, 220, 0.35);
+}
+
+/* 国潮：硬边红色按钮 */
+.page.theme-guochao .primary {
+  background: linear-gradient(180deg, #E05545 0%, #D4443B 40%, #B83330 100%);
+  color: #FFFFFF;
+  border-radius: 6rpx;
+  letter-spacing: 4rpx;
+  box-shadow: 0 4rpx 16rpx rgba(212,68,59,0.3);
+}
+
+/* 书斋：朱砂印章按钮 */
+.page.theme-wenfang .primary {
+  background: linear-gradient(180deg, #B84A3A 0%, #9B3B2A 40%, #7A2E20 100%);
+  color: #FAF5EB;
+  border-radius: 4rpx;
+  letter-spacing: 6rpx;
+  box-shadow: 0 3rpx 12rpx rgba(155,59,42,0.3), inset 0 1rpx 0 rgba(255,255,255,0.1);
+}
+
+/* 幽灵按钮 */
+.ghost {
+  background: transparent;
+  color: var(--yskc-text);
+  border: 1rpx solid var(--yskc-border);
+}
+
+.page.theme-moyun .ghost {
+  border-color: rgba(201,169,110,0.2);
+  color: var(--yskc-muted);
+}
+
+.page.theme-guochao .ghost {
+  border-radius: 4rpx;
+  border-width: 2rpx;
+  border-color: var(--yskc-decor);
+  color: var(--yskc-decor);
+}
+
+.page.theme-wenfang .ghost {
+  border-color: rgba(107,91,74,0.35);
+  color: var(--yskc-decor);
+  border-radius: 4rpx;
+}
+
+/* ===== 工具栏 ===== */
+.toolbar {
+  margin-top: 32rpx;
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* 宣纸白：细线 */
+.page.theme-zhixuan .toolbar {
+  border-top: 1rpx solid rgba(212,197,160,0.35);
+}
+
+/* 水墨山：绿色线 */
+.page.theme-shanshui .toolbar {
+  border-top: 1rpx solid rgba(168,196,176,0.35);
+}
+
+/* 暗夜墨：暗金线 */
+.page.theme-moyun .toolbar {
+  border-top: 1rpx solid rgba(201,169,110,0.15);
+}
+
+/* 宋韵：双细线 */
+.page.theme-songyun .toolbar {
+  border-top: 1rpx solid rgba(197,187,168,0.4);
+  padding-top: 24rpx;
+}
+
+/* 唐风：金色渐变线 */
+.page.theme-tangfeng .toolbar {
+  border-top: 2rpx solid transparent;
+  border-image: linear-gradient(90deg, transparent, rgba(201,169,110,0.5), transparent) 1;
+  padding-top: 24rpx;
+}
+
+/* 国潮：撞色粗线 */
+.page.theme-guochao .toolbar {
+  border-top: 2rpx solid rgba(43,94,167,0.15);
+}
+
+/* 书斋：墨色渐变线 */
+.page.theme-wenfang .toolbar {
+  border-top: 1rpx solid rgba(107,91,74,0.25);
+}
+
+.tool {
+  font-size: 26rpx;
+  color: var(--yskc-muted);
+  padding: 14rpx 24rpx;
+  letter-spacing: 2rpx;
+  border-radius: 6rpx;
+  transition: all 0.2s ease;
+}
+
+.tool:active {
+  background: rgba(44, 36, 24, 0.04);
+}
+
+/* 唐风：工具文字用深檀辅色 */
+.page.theme-tangfeng .tool {
+  color: var(--yskc-muted);
+  opacity: 1;
+}
+
+/* 国潮：蓝色工具文字 */
+.page.theme-guochao .tool {
+  color: var(--yskc-decor);
+  opacity: 0.7;
+}
+
+/* 退出全屏 */
+.exit-full {
+  position: fixed;
+  right: 32rpx;
+  bottom: 56rpx;
+  padding: 14rpx 28rpx;
+  background: rgba(60,48,36,0.6);
+  color: #FBF7EF;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  z-index: 20;
+  backdrop-filter: blur(8rpx);
+  letter-spacing: 2rpx;
+}
+
+.page.theme-moyun .exit-full {
+  background: rgba(201,169,110,0.25);
+  border: 1rpx solid rgba(201,169,110,0.3);
+}
+
+.page.theme-tangfeng .exit-full {
+  background: rgba(184, 50, 40, 0.88);
+  border: 1rpx solid rgba(184, 50, 40, 0.5);
+  color: #FFF8EC;
+}
+
+.page.theme-guochao .exit-full {
+  background: rgba(43,94,167,0.5);
+  border-radius: 8rpx;
+}
+
+.page.theme-wenfang .exit-full {
+  background: rgba(155,59,42,0.45);
+  border: 1rpx solid rgba(155,59,42,0.3);
+  border-radius: 4rpx;
+}

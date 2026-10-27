@@ -1,0 +1,186 @@
+/* 雕刻木牌容器 — 多层框+浅浮雕感 */
+.digital-wrap {
+  width: 100%;
+  padding: 48rpx 32rpx 40rpx;
+  text-align: center;
+  background: var(--yskc-card, #F8F5EF);
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  /* 多层边框替代单边框：外光 → 主体 → 内影 */
+  box-shadow:
+    0 1rpx 0 rgba(255, 255, 255, 0.5) inset,
+    0 2rpx 8rpx rgba(44, 36, 24, 0.06) inset,
+    0 0 0 1rpx var(--yskc-border),
+    0 0 0 3rpx rgba(255, 255, 255, 0.35),
+    0 2rpx 0 rgba(44, 36, 24, 0.06),
+    0 8rpx 32rpx rgba(44, 36, 24, 0.07);
+}
+
+/* 木牌顶部微光带 */
+.digital-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── 主题定制 ── */
+
+/* 宋韵 */
+.digital-wrap.theme-songyun {
+  border-radius: 6rpx;
+  box-shadow:
+    inset 0 0 0 5rpx var(--yskc-card),
+    inset 0 0 0 6rpx rgba(201, 192, 176, 0.4),
+    0 0 0 1rpx rgba(183, 160, 120, 0.2),
+    0 6rpx 28rpx rgba(95, 143, 122, 0.07);
+}
+
+.digital-wrap.theme-songyun::before {
+  display: none;
+}
+
+/* 唐风：金框 + 绢帛光 */
+.digital-wrap.theme-tangfeng {
+  border-radius: 10rpx;
+  box-shadow:
+    inset 0 0 0 4rpx rgba(255, 248, 236, 0.6),
+    inset 0 0 0 5rpx rgba(212, 175, 55, 0.3),
+    0 0 0 1.5rpx rgba(212, 175, 55, 0.45),
+    0 8rpx 32rpx rgba(192, 57, 43, 0.06),
+    0 2rpx 0 rgba(212, 175, 55, 0.2);
+}
+
+/* 国潮：硬边双线框 */
+.digital-wrap.theme-guochao {
+  border-radius: 2rpx;
+  box-shadow:
+    0 0 0 2rpx var(--yskc-border),
+    0 0 0 5rpx rgba(255, 255, 255, 0.6),
+    0 4rpx 16rpx rgba(44, 36, 24, 0.06);
+  background: #FFFCF7;
+}
+
+/* 国潮内角装饰 */
+.digital-wrap.theme-guochao::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 48rpx; height: 48rpx;
+  border-top: 4rpx solid var(--yskc-accent);
+  border-left: 4rpx solid var(--yskc-accent);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* 书斋：竹简式+左竖栏 */
+.digital-wrap.theme-wenfang {
+  border-left: 10rpx solid rgba(92, 74, 56, 0.4);
+  border-radius: 3rpx 8rpx 8rpx 3rpx;
+  box-shadow: 0 6rpx 24rpx rgba(92, 74, 56, 0.07);
+}
+
+.digital-wrap.theme-wenfang::before {
+  content: '砚';
+  position: absolute;
+  left: 6rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-size: 20rpx;
+  letter-spacing: 6rpx;
+  color: rgba(163, 59, 43, 0.28);
+  pointer-events: none;
+}
+
+/* 暗夜 */
+.digital-wrap.theme-moyun {
+  background: linear-gradient(180deg, #26221c, #1a1814);
+  box-shadow:
+    0 1rpx 0 rgba(255,255,255,0.04) inset,
+    0 0 0 1rpx rgba(201, 169, 110, 0.15),
+    0 4rpx 24rpx rgba(0, 0, 0, 0.4);
+}
+
+/* ── 数字显示 ── */
+.time {
+  font-size: 96rpx;
+  letter-spacing: 10rpx;
+  font-weight: 700;
+  color: var(--yskc-text, #2C2A27);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  position: relative;
+  z-index: 1;
+
+  /* 雕刻感文字阴影 */
+  text-shadow:
+    0 1rpx 0 rgba(255, 255, 255, 0.3),
+    0 -1rpx 0 rgba(44, 36, 24, 0.08);
+}
+
+/* 唐风数字 */
+.digital-wrap.theme-tangfeng .time {
+  color: var(--yskc-accent);
+  text-shadow: none;
+  font-weight: 800;
+}
+
+/* 国潮数字 */
+.digital-wrap.theme-guochao .time {
+  letter-spacing: 12rpx;
+  font-weight: 800;
+  text-shadow: none;
+}
+
+/* 暗夜数字：鎏金色 */
+.digital-wrap.theme-moyun .time {
+  color: var(--yskc-gilding);
+  text-shadow: 0 0 32rpx rgba(201, 169, 110, 0.15);
+}
+
+/* ── 元数据行（科目/状态） ── */
+.meta {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: var(--yskc-muted, #8F877C);
+  letter-spacing: 3rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.subject {
+  color: var(--yskc-text, #2C2A27);
+  font-weight: 600;
+}
+
+.status-RUNNING {
+  color: var(--yskc-accent);
+  font-weight: 700;
+}
+
+.status-FINISHED {
+  color: var(--yskc-gilding);
+}
+
+.status-PAUSED {
+  color: #A67C52;
+}
+
+/* ── 水墨印迹分隔线 ── */
+.digital-wrap .ink-sep {
+  width: 120rpx;
+  height: 2rpx;
+  margin: 16rpx auto 0;
+  background: linear-gradient(90deg, transparent, var(--yskc-muted), transparent);
+  opacity: 0.25;
+  border-radius: 2rpx;
+}

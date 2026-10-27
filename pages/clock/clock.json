@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "砚时考钟",
+  "usingComponents": {
+    "digital-clock": "/components/digital-clock/digital-clock",
+    "analog-clock": "/components/analog-clock/analog-clock",
+    "progress-bar": "/components/progress-bar/progress-bar",
+    "confirm-dialog": "/components/confirm-dialog/confirm-dialog",
+    "alert-popup": "/components/alert-popup/alert-popup"
+  }
+}

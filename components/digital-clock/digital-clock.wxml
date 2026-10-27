@@ -1,0 +1,9 @@
+<view class="digital-wrap {{themeClass}}">
+  <view class="time">{{timeText}}</view>
+  <view class="ink-sep"></view>
+  <view class="meta">
+    <text class="subject" wx:if="{{subjectName}}">{{subjectName}}</text>
+    <text class="dot" wx:if="{{subjectName}}">·</text>
+    <text class="status status-{{status}}">{{statusLabel}}</text>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "desc": "关于砚时考钟", 
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

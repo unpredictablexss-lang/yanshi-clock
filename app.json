@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/clock/clock",
+    "pages/settings/settings",
+    "pages/setup/setup",
+    "pages/alerts/alerts",
+    "pages/history/history",
+    "pages/help/help"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#EEEAE3",
+    "navigationBarTitleText": "砚时考钟",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#EEEAE3",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8F877C",
+    "selectedColor": "#5F8F7A",
+    "backgroundColor": "#F8F5EF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/clock/clock",
+        "text": "时钟",
+        "iconPath": "assets/images/icons/tab-clock.png",
+        "selectedIconPath": "assets/images/icons/tab-clock-active.png"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "设置",
+        "iconPath": "assets/images/icons/tab-settings.png",
+        "selectedIconPath": "assets/images/icons/tab-settings-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

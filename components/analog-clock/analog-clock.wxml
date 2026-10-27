@@ -1,0 +1,8 @@
+<view class="analog-wrap">
+  <canvas
+    type="2d"
+    id="analogCanvas"
+    class="canvas"
+    style="width: {{canvasSize}}px; height: {{canvasSize}}px;"
+  ></canvas>
+</view>

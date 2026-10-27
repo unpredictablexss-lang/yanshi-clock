@@ -1,0 +1,13 @@
+.analog-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 12rpx 0 24rpx;
+}
+
+.canvas {
+  width: 600rpx;
+  height: 600rpx;
+  max-width: 94vw;
+  max-height: 94vw;
+}

@@ -1,0 +1,59 @@
+.mask {
+  position: fixed;
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: rgba(28, 28, 28, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  width: 600rpx;
+  background: var(--yskc-card, #FBF7EF);
+  border: 2rpx solid var(--yskc-border, #D4C5A0);
+  border-radius: 16rpx;
+  padding: 40rpx 36rpx 28rpx;
+}
+
+.title {
+  text-align: center;
+  font-size: 34rpx;
+  color: var(--yskc-accent, #8B3A3A);
+  font-weight: 600;
+}
+
+.msg {
+  margin-top: 24rpx;
+  text-align: center;
+  color: var(--yskc-text, #3C3024);
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.actions {
+  margin-top: 36rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn {
+  flex: 1;
+  font-size: 28rpx;
+  border-radius: 12rpx;
+  padding: 16rpx 0;
+  line-height: 1.4;
+}
+
+.btn::after { border: none; }
+
+.cancel {
+  background: transparent;
+  color: var(--yskc-muted, #8A7A68);
+  border: 1rpx solid var(--yskc-border, #D4C5A0);
+}
+
+.ok {
+  background: linear-gradient(180deg, #C4A574 0%, #8B6914 100%);
+  color: #FBF7EF;
+}

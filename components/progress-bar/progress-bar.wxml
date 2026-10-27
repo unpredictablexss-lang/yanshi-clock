@@ -1,0 +1,6 @@
+<view class="bar-wrap">
+  <view class="track">
+    <view class="fill" style="width: {{width}};"></view>
+  </view>
+  <text class="pct">{{percent}}%</text>
+</view>

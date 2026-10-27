@@ -1,0 +1,24 @@
+<view class="panel">
+  <view class="head flex-between">
+    <text>当前：{{currentLabel}}</text>
+    <button class="mini" bindtap="onToggle">{{playing ? '暂停' : '播放'}}</button>
+  </view>
+  <slider
+    min="0"
+    max="100"
+    value="{{volume * 100}}"
+    activeColor="#8B6914"
+    backgroundColor="#D4C5A0"
+    block-size="16"
+    bindchange="onVolume"
+  />
+  <view class="list">
+    <view
+      class="item {{currentNoise === item.key ? 'on' : ''}}"
+      wx:for="{{noiseOptions}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onSelect"
+    >{{item.label}}</view>
+  </view>
+</view>

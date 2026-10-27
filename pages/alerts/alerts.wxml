@@ -1,0 +1,32 @@
+﻿<view class="page pattern-bg {{themeClass}}" style="{{themeVars}}">
+  <view class="section-title">快速预设</view>
+  <view class="card">
+    <view class="row" wx:for="{{presets}}" wx:key="key">
+      <text>{{item.name}}</text>
+      <switch checked="{{item.enabled}}" color="#8B6914" data-key="{{item.key}}" bindchange="onTogglePreset" />
+    </view>
+  </view>
+
+  <view class="section-title">提醒方式</view>
+  <view class="card">
+    <view class="row">
+      <text>宣纸弹窗文字提醒</text>
+      <switch checked="{{alertPopup}}" color="#8B6914" data-field="alertPopup" bindchange="onToggleAction" />
+    </view>
+    <view class="row">
+      <text>手机震动</text>
+      <switch checked="{{alertVibrate}}" color="#8B6914" data-field="alertVibrate" bindchange="onToggleAction" />
+    </view>
+    <view class="row">
+      <text>音效提醒</text>
+      <switch checked="{{alertSoundOn}}" color="#8B6914" data-field="alertSoundOn" bindchange="onToggleAction" />
+    </view>
+    <view class="row" wx:if="{{alertSoundOn}}">
+      <text>音效选择</text>
+      <picker mode="selector" range="{{soundOptions}}" range-key="label" bindchange="onSoundPick">
+        <view class="picker-val">{{soundLabel}}</view>
+      </picker>
+      <text class="preview" bindtap="onPreviewSound">试听</text>
+    </view>
+  </view>
+</view>

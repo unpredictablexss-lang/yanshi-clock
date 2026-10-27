@@ -1,0 +1,146 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx 28rpx 80rpx;
+  background: var(--yskc-bg);
+  color: var(--yskc-text);
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 4rpx;
+  font-size: 28rpx;
+  position: relative;
+}
+
+/* 统一分割线（只淡化边框，不要给整行 opacity，否则入口会发灰） */
+.row + .row {
+  border-top: 1rpx solid rgba(201, 192, 176, 0.45);
+}
+
+/* 唐风：金色分割线 */
+.page.theme-tangfeng .row + .row {
+  border-top-color: rgba(201,169,110,0.25);
+}
+
+/* 暗夜墨：暗金分割线 */
+.page.theme-moyun .row + .row {
+  border-top-color: rgba(201,169,110,0.1);
+}
+
+/* 国潮：虚线分割线 */
+.page.theme-guochao .row + .row {
+  border-top: 1rpx dashed rgba(224,213,197,0.5);
+}
+
+/* 书斋：竹色分割线 */
+.page.theme-wenfang .row + .row {
+  border-top-color: rgba(200,184,152,0.35);
+}
+
+.arrow {
+  color: var(--yskc-accent);
+  font-size: 36rpx;
+  opacity: 0.55;
+}
+
+.links .row {
+  color: var(--yskc-text);
+  font-weight: 500;
+}
+
+.dial.on {
+  color: var(--yskc-accent);
+  font-weight: 600;
+}
+
+/* 唐风：选中态用朱红 */
+.page.theme-tangfeng .dial.on {
+  color: var(--yskc-accent);
+}
+
+.stat {
+  padding: 12rpx 0;
+  font-size: 28rpx;
+}
+
+.ghost-btn, .danger-btn {
+  margin-top: 24rpx;
+  font-size: 26rpx;
+  border-radius: 12rpx;
+  line-height: 1.4;
+  padding: 18rpx 0;
+  font-weight: 500;
+}
+
+.ghost-btn {
+  background: transparent;
+  color: var(--yskc-text);
+  border: 1rpx solid var(--yskc-border);
+}
+
+.danger-btn {
+  background: transparent;
+  color: #8B3A3A;
+  border: 1rpx solid rgba(139,58,58,0.35);
+}
+
+.ghost-btn::after, .danger-btn::after { border: none; }
+
+/* 宋韵：青瓷幽灵按钮 */
+.page.theme-songyun .ghost-btn {
+  border-color: rgba(90,138,114,0.35);
+  color: var(--yskc-accent);
+}
+
+/* 暗夜墨：暗金幽灵按钮 */
+.page.theme-moyun .ghost-btn {
+  border-color: rgba(201,169,110,0.2);
+  color: var(--yskc-muted);
+}
+
+/* 国潮：方正按钮 */
+.page.theme-guochao .ghost-btn,
+.page.theme-guochao .danger-btn {
+  border-radius: 4rpx;
+  border-width: 2rpx;
+}
+
+.page.theme-guochao .ghost-btn {
+  border-color: var(--yskc-decor);
+  color: var(--yskc-decor);
+}
+
+/* 书斋：竹色按钮 */
+.page.theme-wenfang .ghost-btn {
+  border-color: rgba(107,91,74,0.35);
+  color: var(--yskc-decor);
+  border-radius: 4rpx;
+}
+
+.page.theme-wenfang .danger-btn {
+  color: var(--yskc-gilding);
+  border-color: rgba(155,59,42,0.3);
+  border-radius: 4rpx;
+}
+
+.about { font-size: 28rpx; }
+
+.muted {
+  color: var(--yskc-muted);
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}
+
+.setting-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.setting-tip {
+  color: var(--yskc-muted);
+  font-size: 22rpx;
+}

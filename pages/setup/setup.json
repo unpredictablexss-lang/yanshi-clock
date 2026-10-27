@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "考试设置",
+  "usingComponents": {
+    "exam-template-card": "/components/exam-template-card/exam-template-card"
+  }
+}

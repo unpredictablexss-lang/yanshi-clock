@@ -1,0 +1,63 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx 28rpx 60rpx;
+  background: var(--yskc-bg);
+  box-sizing: border-box;
+}
+
+.faq {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid var(--yskc-border, #D4C5A0);
+  opacity: 0.7;
+}
+
+.faq:last-child { border-bottom: none; }
+
+.q { font-size: 28rpx; color: var(--yskc-text); font-weight: 600; }
+.a { margin-top: 12rpx; font-size: 26rpx; color: var(--yskc-muted); line-height: 1.6; }
+
+.ta {
+  width: 100%;
+  min-height: 180rpx;
+  background: var(--yskc-card, #FBF7EF);
+  border: 1rpx solid var(--yskc-border);
+  border-radius: 12rpx;
+  padding: 16rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  opacity: 0.8;
+}
+
+.input {
+  margin-top: 16rpx;
+  border: 1rpx solid var(--yskc-border);
+  border-radius: 12rpx;
+  padding: 16rpx;
+  font-size: 26rpx;
+}
+
+.submit, .contact {
+  margin-top: 20rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  line-height: 1.4;
+  padding: 16rpx 0;
+  position: relative;
+  z-index: 1;
+}
+
+.submit {
+  background: linear-gradient(180deg, #C4A574 0%, #8B6914 100%);
+  color: #FBF7EF;
+}
+
+.contact {
+  background: transparent;
+  color: var(--yskc-text);
+  border: 1rpx solid var(--yskc-border);
+}
+
+.submit::after, .contact::after { border: none; }
+
+.ver { font-size: 30rpx; color: var(--yskc-accent); margin-bottom: 12rpx; }
+.log { font-size: 26rpx; color: var(--yskc-muted); line-height: 1.8; }

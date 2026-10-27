@@ -1,0 +1,29 @@
+﻿<view class="page pattern-bg {{themeClass}}" style="{{themeVars}}">
+  <view class="section-title">常见问题</view>
+  <view class="card">
+    <view class="faq" wx:for="{{faqs}}" wx:key="q" data-index="{{index}}" bindtap="onToggle">
+      <view class="q">{{item.q}}</view>
+      <view class="a" wx:if="{{item.open}}">{{item.a}}</view>
+    </view>
+  </view>
+
+  <view class="section-title">意见反馈</view>
+  <view class="card">
+    <textarea class="ta" placeholder="请输入您的建议或问题..." value="{{feedback}}" bindinput="onInputFeedback" maxlength="500" />
+    <input class="input" placeholder="联系方式（选填）" value="{{contact}}" bindinput="onInputContact" />
+    <button class="submit" bindtap="onSubmit">提交反馈</button>
+    <button class="contact" open-type="contact">联系客服</button>
+  </view>
+
+  <view class="section-title">版本日志</view>
+  <view class="card">
+    <view class="ver">V{{version}}</view>
+    <view class="log">· 压缩内置音频，代码包资源全部低于 200KB</view>
+    <view class="log">· 修复挂钟遮挡重置弹窗、新配置未立即应用</view>
+    <view class="log">· 考试名改为始终可编辑，支持 12 字</view>
+    <view class="log">· 断点恢复，重启小程序仍可继续考试</view>
+    <view class="log">· 新增模考历史与内置无版权风险环境音</view>
+    <view class="log">· 虚拟时钟核心功能上线</view>
+    <view class="log">· 双时钟模式 / 考试模板 / 提醒与统计</view>
+  </view>
+</view>

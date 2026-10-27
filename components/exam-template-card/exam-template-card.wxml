@@ -1,0 +1,5 @@
+<view class="card {{selected ? 'selected' : ''}}" bindtap="onTap">
+  <view class="icon">{{template.icon}}</view>
+  <view class="name">{{template.name}}</view>
+  <view class="time">{{template.start}} - {{template.end}}</view>
+</view>

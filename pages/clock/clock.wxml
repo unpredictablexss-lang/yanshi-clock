@@ -1,0 +1,76 @@
+<view class="page pattern-bg {{themeClass}} {{fullscreen ? 'is-full' : ''}}" style="{{themeVars}}">
+  <view class="header" wx:if="{{!fullscreen}}">
+    <text class="brand">砚时考钟</text>
+    <view class="header-actions">
+      <text class="link" bindtap="onGoSetup">考试设置</text>
+      <text class="link" bindtap="onGoAlerts">提醒</text>
+    </view>
+  </view>
+
+  <view class="stage">
+    <block wx:if="{{clockMode === 'digital'}}">
+      <digital-clock
+        timeText="{{timeText}}"
+        subjectName="{{subjectName}}"
+        statusLabel="{{statusLabel}}"
+        status="{{status}}"
+        themeClass="{{themeClass}}"
+      />
+    </block>
+    <block wx:else>
+      <analog-clock
+        wx:if="{{!showResetDialog && !alertVisible}}"
+        virtualTime="{{virtualTimeMs}}"
+        themeKey="{{themeKey}}"
+        dialMode="{{dialMode}}"
+      />
+      <view class="analog-meta">
+        <text>{{subjectName}}</text>
+        <text class="sep">·</text>
+        <text>{{statusLabel}}</text>
+        <text class="sep">·</text>
+        <text>{{timeText}}</text>
+      </view>
+    </block>
+
+    <view class="progress-box" wx:if="{{!fullscreen}}">
+      <progress-bar progress="{{progress}}" />
+    </view>
+
+    <view class="info" wx:if="{{!fullscreen}}">
+      <view class="range">{{rangeText}}</view>
+      <view class="stats">
+        <text>剩余 {{remainText}}</text>
+        <text>已考 {{elapsedText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="controls" wx:if="{{!fullscreen}}">
+    <button class="btn primary" bindtap="onPrimaryBtn">{{primaryBtnText}}</button>
+    <button class="btn ghost" bindtap="onResetTap" disabled="{{status === 'IDLE'}}">重置</button>
+  </view>
+
+  <view class="toolbar" wx:if="{{!fullscreen}}">
+    <view class="tool" bindtap="onToggleFullscreen">全屏</view>
+    <view class="tool" bindtap="onToggleClockMode">{{clockMode === 'digital' ? '切换挂钟' : '切换电子钟'}}</view>
+    <view class="tool" bindtap="onGoSetup">设置时段</view>
+  </view>
+
+  <view class="exit-full" wx:if="{{fullscreen}}" bindtap="onToggleFullscreen">退出全屏</view>
+
+  <confirm-dialog
+    visible="{{showResetDialog}}"
+    title="重置考试"
+    message="确认清空当前进度并回到待考状态？配置将保留。"
+    bind:confirm="onResetConfirm"
+    bind:cancel="onResetCancel"
+  />
+
+  <alert-popup
+    visible="{{alertVisible}}"
+    title="{{alertTitle}}"
+    message="{{alertMessage}}"
+    bind:dismiss="onAlertDismiss"
+  />
+</view>

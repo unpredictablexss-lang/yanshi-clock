@@ -1,0 +1,40 @@
+.mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(28,28,28,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+
+.popup {
+  width: 560rpx;
+  background: var(--yskc-card, #FBF7EF);
+  border: 2rpx solid var(--yskc-border, #D4C5A0);
+  border-radius: 16rpx;
+  padding: 40rpx 32rpx 28rpx;
+  text-align: center;
+}
+
+.title {
+  font-size: 36rpx;
+  color: var(--yskc-accent, #8B3A3A);
+  font-weight: 600;
+}
+
+.msg {
+  margin-top: 20rpx;
+  color: var(--yskc-text, #3C3024);
+  font-size: 28rpx;
+}
+
+.ok {
+  margin-top: 32rpx;
+  background: linear-gradient(180deg, #C4A574 0%, #8B6914 100%);
+  color: #FBF7EF;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.ok::after { border: none; }

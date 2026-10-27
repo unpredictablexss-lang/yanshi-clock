@@ -1,0 +1,24 @@
+# WeChat Developer Tools private settings
+project.private.config.json
+
+# Dependencies and generated packages
+node_modules/
+miniprogram_npm/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Build and temporary output
+dist/
+build/
+tmp/
+temp/
+*.log
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini

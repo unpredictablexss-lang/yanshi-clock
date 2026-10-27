@@ -1,0 +1,87 @@
+﻿<view class="page pattern-bg {{themeClass}}" style="{{themeVars}}">
+  <view class="section-title">快捷入口</view>
+  <view class="card links">
+    <view class="row" bindtap="onGoSetup"><text>考试时序设置</text><text class="arrow">›</text></view>
+    <view class="row" bindtap="onGoAlerts"><text>提醒规则配置</text><text class="arrow">›</text></view>
+    <view class="row" bindtap="onGoHistory"><text>模考历史记录</text><text class="arrow">›</text></view>
+    <view class="row" bindtap="onGoHelp"><text>使用指南 / 反馈</text><text class="arrow">›</text></view>
+  </view>
+
+  <view class="section-title">主题切换</view>
+  <view class="card">
+    <theme-picker current="{{themeKey}}" bind:select="onSelectTheme" />
+  </view>
+
+  <view class="section-title">挂钟表盘风格</view>
+  <view class="card">
+    <view
+      class="row dial {{dialMode === item.value ? 'on' : ''}}"
+      wx:for="{{dialModes}}"
+      wx:key="value"
+      data-value="{{item.value}}"
+      bindtap="onSelectDial"
+    >{{item.label}}</view>
+  </view>
+
+  <view class="section-title">白噪音</view>
+  <view class="card">
+    <audio-panel
+      noiseOptions="{{noiseOptions}}"
+      currentNoise="{{currentNoise}}"
+      volume="{{volume}}"
+      playing="{{playing}}"
+      bind:select="onNoiseSelect"
+      bind:toggle="onNoiseToggle"
+      bind:volumechange="onNoiseVolume"
+    />
+  </view>
+
+  <view class="section-title">显示与功能</view>
+  <view class="card">
+    <view class="row">
+      <text>屏幕常亮</text>
+      <switch checked="{{keepScreenOn}}" color="#8B6914" bindchange="onToggleKeepScreen" />
+    </view>
+    <view class="row" bindtap="onToggleEyeCare">
+      <text>护眼模式（暗夜墨韵）</text>
+      <text class="muted">{{eyeCare ? '已开启' : '点击开启'}}</text>
+    </view>
+    <view class="row">
+      <text>音效总控</text>
+      <switch checked="{{soundEnabled}}" color="#8B6914" bindchange="onToggleSound" />
+    </view>
+    <view class="row">
+      <view class="setting-label">
+        <text>考试结束铃声</text>
+        <text class="setting-tip">需同时开启音效总控</text>
+      </view>
+      <switch checked="{{examEndSoundEnabled}}" color="#8B6914" bindchange="onToggleExamEndSound" />
+    </view>
+    <view class="row">
+      <text>震动总控</text>
+      <switch checked="{{vibrateEnabled}}" color="#8B6914" bindchange="onToggleVibrate" />
+    </view>
+  </view>
+
+  <view class="section-title">学习统计</view>
+  <view class="card">
+    <view class="stat">累计模考：{{stats.totalExamCount}} 次</view>
+    <view class="stat">累计时长：{{stats.totalDurationText}}</view>
+    <view class="stat">本周模考：{{stats.weekExamCount}} 次</view>
+    <view class="stat">最近一次：{{stats.lastExamAt}}</view>
+    <button class="ghost-btn" bindtap="onClearStats">清空学习记录</button>
+  </view>
+
+  <view class="section-title">数据管理</view>
+  <view class="card">
+    <button class="danger-btn" bindtap="onClearAll">清空所有配置与缓存</button>
+  </view>
+
+  <view class="section-title">关于</view>
+  <view class="card about">
+    <view>版本 V{{version}}</view>
+    <view class="muted">纯前端离线 · 个人主体免费版</view>
+  </view>
+
+  <ad wx:if="{{bannerAdUnitId}}" unit-id="{{bannerAdUnitId}}" type="banner" style="width:100%;margin-top:24rpx;"></ad>
+</view>

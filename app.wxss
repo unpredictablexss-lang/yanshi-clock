@@ -1,0 +1,346 @@
+/**app.wxss — 砚时考钟·四式国风视觉系统**/
+
+page {
+  --yskc-bg: #EEEAE3;
+  --yskc-text: #2C2A27;
+  --yskc-accent: #5F8F7A;
+  --yskc-muted: #8F877C;
+  --yskc-card: #F8F5EF;
+  --yskc-border: #C9C0B0;
+  --yskc-decor: #A8BFAF;
+  --yskc-gilding: #B7A078;
+  --yskc-outer: #7A9A88;
+  --yskc-progress-a: #C9C0B0;
+  --yskc-progress-b: #5F8F7A;
+  --yskc-face: #F8F5EF;
+  --yskc-radius: 8rpx;
+  background: var(--yskc-bg);
+  color: var(--yskc-text);
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  background: var(--yskc-bg);
+  color: var(--yskc-text);
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.25s ease;
+}
+
+/* 主题色由内联 CSS 变量驱动；此处仅保留结构类 */
+
+/* ================================================================
+   纹样背景 — 注意：pattern-bg 与 theme 在同一节点
+   ================================================================ */
+.page.pattern-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 宋韵：汝窑冰裂 + 天青晕 */
+.page.pattern-bg.theme-songyun::before {
+  background:
+    linear-gradient(38deg, transparent 49%, rgba(183,160,120,0.14) 50%, transparent 51%),
+    linear-gradient(142deg, transparent 49%, rgba(95,143,122,0.10) 50%, transparent 51%),
+    radial-gradient(ellipse at 22% 78%, rgba(95,143,122,0.12) 0%, transparent 42%),
+    radial-gradient(ellipse at 78% 18%, rgba(183,160,120,0.10) 0%, transparent 40%);
+  background-size: 180rpx 180rpx, 220rpx 220rpx, 100% 100%, 100% 100%;
+  opacity: 1;
+}
+
+/* 唐风：绢帛光泽 + 金朱点 */
+.page.pattern-bg.theme-tangfeng::before {
+  background:
+    linear-gradient(125deg, rgba(212,175,55,0.16) 0%, transparent 28%, transparent 72%, rgba(192,57,43,0.08) 100%),
+    radial-gradient(circle 10rpx at 18% 22%, rgba(212,175,55,0.28) 40%, transparent 50%),
+    radial-gradient(circle 8rpx at 82% 70%, rgba(192,57,43,0.16) 40%, transparent 50%),
+    radial-gradient(circle 14rpx at 48% 48%, rgba(212,175,55,0.10) 30%, transparent 55%),
+    radial-gradient(ellipse at 50% 0%, rgba(224,197,106,0.14) 0%, transparent 55%);
+}
+
+/* 国潮：回纹几何 + 朱青对角 */
+.page.pattern-bg.theme-guochao::before {
+  background:
+    linear-gradient(135deg, rgba(31,78,121,0.09) 0%, transparent 32%),
+    linear-gradient(315deg, rgba(200,16,46,0.08) 0%, transparent 30%),
+    linear-gradient(45deg, rgba(31,78,121,0.07) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(200,16,46,0.06) 25%, transparent 25%);
+  background-size: 100% 100%, 100% 100%, 44rpx 44rpx, 44rpx 44rpx;
+  background-position: 0 0, 0 0, 0 0, 22rpx 22rpx;
+}
+
+/* 书斋：竹影竖纹 + 墨晕 */
+.page.pattern-bg.theme-wenfang::before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 50rpx,
+      rgba(92,74,56,0.10) 50rpx 52rpx,
+      transparent 52rpx 54rpx,
+      rgba(92,74,56,0.05) 54rpx 55rpx,
+      transparent 55rpx 108rpx
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 132rpx,
+      rgba(92,74,56,0.08) 132rpx 136rpx,
+      transparent 136rpx 280rpx
+    ),
+    radial-gradient(ellipse at 18% 82%, rgba(163,59,43,0.07) 0%, transparent 38%),
+    radial-gradient(ellipse at 86% 16%, rgba(92,74,56,0.08) 0%, transparent 36%);
+}
+
+/* 暗夜护眼 */
+.page.pattern-bg.theme-moyun::before {
+  background:
+    radial-gradient(circle at 22% 28%, rgba(201,169,110,0.08) 0%, transparent 28%),
+    radial-gradient(circle at 78% 72%, rgba(201,169,110,0.05) 0%, transparent 24%),
+    radial-gradient(ellipse at 40% 90%, rgba(40,34,28,0.5) 0%, transparent 50%);
+}
+
+/* ================================================================
+   卡片
+   ================================================================ */
+.card {
+  background: var(--yskc-card);
+  border: 1rpx solid var(--yskc-border);
+  border-radius: var(--yskc-radius);
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 6rpx 24rpx rgba(44, 42, 39, 0.04);
+}
+
+.page.theme-songyun .card {
+  border-radius: 8rpx;
+  box-shadow:
+    inset 0 0 0 5rpx var(--yskc-card),
+    inset 0 0 0 6rpx rgba(201,192,176,0.55),
+    0 8rpx 28rpx rgba(95,143,122,0.07);
+}
+
+.page.theme-tangfeng .card {
+  border: 2rpx solid rgba(212,175,55,0.55);
+  border-radius: 12rpx;
+  box-shadow:
+    0 8rpx 28rpx rgba(192,57,43,0.08),
+    inset 0 1rpx 0 rgba(224,197,106,0.35);
+}
+
+.page.theme-tangfeng .card::before,
+.page.theme-tangfeng .card::after {
+  content: '';
+  position: absolute;
+  width: 22rpx;
+  height: 22rpx;
+  border: 2rpx solid var(--yskc-gilding);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.page.theme-tangfeng .card::before {
+  top: 6rpx; left: 6rpx;
+  border-right: none; border-bottom: none;
+}
+
+.page.theme-tangfeng .card::after {
+  top: 6rpx; right: 6rpx;
+  border-left: none; border-bottom: none;
+}
+
+.page.theme-guochao .card {
+  border: 3rpx solid rgba(217,208,194,0.95);
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.page.theme-guochao .card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  border-style: solid;
+  border-width: 40rpx 40rpx 0 0;
+  border-color: var(--yskc-accent) transparent transparent transparent;
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.page.theme-guochao .card::after {
+  content: '';
+  position: absolute;
+  right: 0; bottom: 0;
+  border-style: solid;
+  border-width: 0 0 28rpx 28rpx;
+  border-color: transparent transparent var(--yskc-decor) transparent;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.page.theme-wenfang .card {
+  border-left: 10rpx solid rgba(92,74,56,0.45);
+  border-radius: 4rpx 10rpx 10rpx 4rpx;
+  box-shadow: 0 4rpx 18rpx rgba(92,74,56,0.07);
+}
+
+.page.theme-moyun .card {
+  border-color: rgba(201,169,110,0.22);
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.35);
+}
+
+/* ================================================================
+   按钮
+   ================================================================ */
+.btn-wood {
+  background: linear-gradient(180deg, #D4B87A 0%, #A07C30 100%);
+  color: #FFF8EC;
+  border-radius: var(--yskc-radius);
+  padding: 18rpx 36rpx;
+  font-size: 28rpx;
+  text-align: center;
+  border: none;
+  line-height: 1.4;
+  box-shadow: 0 6rpx 16rpx rgba(139,105,20,0.18);
+}
+
+.btn-wood::after { border: none; }
+
+.page.theme-songyun .btn-wood {
+  background: linear-gradient(180deg, rgba(95,143,122,0.14), rgba(95,143,122,0.05));
+  color: var(--yskc-accent);
+  border: 2rpx solid rgba(95,143,122,0.45);
+  border-radius: 8rpx;
+  box-shadow: inset 0 1rpx 0 rgba(255,255,255,0.55);
+}
+
+.page.theme-tangfeng .btn-wood {
+  background: linear-gradient(135deg, #D4AF37 0%, #B8953C 45%, #8F6E1C 100%);
+  color: #2A1808;
+  font-weight: 700;
+  border: 1rpx solid rgba(143, 110, 28, 0.45);
+  text-shadow: none;
+  box-shadow: 0 6rpx 16rpx rgba(143, 110, 28, 0.25), inset 0 1rpx 0 rgba(255, 248, 220, 0.35);
+}
+
+.page.theme-guochao .btn-wood {
+  background: linear-gradient(180deg, #E0233F, #C8102E 55%, #A00D24);
+  color: #fff;
+  border-radius: 4rpx;
+  font-weight: 700;
+  letter-spacing: 4rpx;
+  box-shadow: 0 8rpx 18rpx rgba(200,16,46,0.28);
+}
+
+.page.theme-wenfang .btn-wood {
+  background: linear-gradient(180deg, #B84A3A, #A33B2B 50%, #7F2C20);
+  color: #F7F1E4;
+  border-radius: 4rpx;
+  font-weight: 700;
+  letter-spacing: 6rpx;
+  box-shadow: 0 6rpx 16rpx rgba(163,59,43,0.28);
+}
+
+.page.theme-moyun .btn-wood {
+  background: linear-gradient(180deg, #D4B87A, #C9A96E);
+  color: #1A1612;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--yskc-text);
+  border: 1rpx solid var(--yskc-border);
+  border-radius: var(--yskc-radius);
+  padding: 16rpx 28rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.btn-ghost::after { border: none; }
+
+.page.theme-guochao .btn-ghost {
+  border-width: 2rpx;
+  border-radius: 4rpx;
+}
+
+.page.theme-wenfang .btn-ghost {
+  border-color: rgba(92,74,56,0.4);
+  color: var(--yskc-decor);
+}
+
+/* ================================================================
+   分组标题
+   ================================================================ */
+.section-title {
+  font-size: 28rpx;
+  color: var(--yskc-accent);
+  padding-left: 16rpx;
+  border-left: 6rpx solid var(--yskc-accent);
+  margin: 28rpx 0 20rpx;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 2rpx;
+}
+
+.page.theme-songyun .section-title {
+  border-left-width: 4rpx;
+  font-weight: 500;
+}
+
+.page.theme-tangfeng .section-title {
+  color: var(--yskc-accent);
+  border-left-color: var(--yskc-gilding);
+}
+
+.page.theme-tangfeng .section-title::after {
+  content: '';
+  display: inline-block;
+  width: 48rpx;
+  height: 2rpx;
+  margin-left: 12rpx;
+  vertical-align: middle;
+  background: linear-gradient(90deg, var(--yskc-gilding), transparent);
+}
+
+.page.theme-guochao .section-title {
+  border-left-width: 10rpx;
+}
+
+.page.theme-guochao .section-title::after {
+  content: '';
+  display: inline-block;
+  width: 10rpx;
+  height: 10rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
+  background: var(--yskc-accent);
+  opacity: 0.45;
+}
+
+.page.theme-wenfang .section-title {
+  border-left-color: var(--yskc-gilding);
+  font-weight: 700;
+}
+
+.muted { color: var(--yskc-muted); }
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
